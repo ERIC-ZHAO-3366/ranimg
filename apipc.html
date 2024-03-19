@@ -17,9 +17,8 @@
                     // Get the random image link
                     const randomImageLink = imageLinks[randomIndex];
 
-                    // Display the random image
-                    const imgElement = document.getElementById('randomImage');
-                    imgElement.src = randomImageLink;
+                    // Redirect to the random image
+                    window.location.href = randomImageLink;
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -28,6 +27,5 @@
     </script>
 </head>
 <body onload="getRandomImage()">
-    <img id="randomImage" src="" alt="Random Image">
 </body>
 </html>
