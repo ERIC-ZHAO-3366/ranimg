@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Image</title>
+    <script>
+        function getRandomImage() {
+            // Read the image links from the local file
+            fetch('img.txt')
+                .then(response => response.text())
+                .then(data => {
+                    // Split the data into an array of image links
+                    const imageLinks = data.split('\n');
+
+                    // Get a random index from the array
+                    const randomIndex = Math.floor(Math.random() * imageLinks.length);
+
+                    // Get the random image link
+                    const randomImageLink = imageLinks[randomIndex];
+
+                    // Display the random image
+                    const imgElement = document.getElementById('randomImage');
+                    imgElement.src = randomImageLink;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</head>
+<body onload="getRandomImage()">
+    <img id="randomImage" src="" alt="Random Image">
+</body>
+</html>
