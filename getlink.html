@@ -12,8 +12,14 @@
                 // Get a random line
                 const randomLine = lines[Math.floor(Math.random() * lines.length)];
 
-                // Display the random line in the body of the HTML
-                document.body.innerHTML = randomLine;
+                // Create an object with the random line
+                const randomLineObject = { line: randomLine };
+
+                // Convert the object to a JSON string
+                const randomLineJson = JSON.stringify(randomLineObject);
+
+                // Display the JSON string in the body of the HTML
+                document.body.innerHTML = randomLineJson;
             })
             .catch((error) => {
                 console.error('Error:', error);
