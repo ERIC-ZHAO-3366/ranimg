@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // Fetch the file
+        fetch('img.txt')
+            .then(response => response.text())
+            .then(data => {
+                // Split the file content into an array of lines
+                const lines = data.split('\n');
+
+                // Get a random line
+                const randomLine = lines[Math.floor(Math.random() * lines.length)];
+
+                // Display the random line in the body of the HTML
+                document.body.innerHTML = randomLine;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+</html>
